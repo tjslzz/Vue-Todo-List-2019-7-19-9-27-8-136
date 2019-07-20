@@ -1,0 +1,54 @@
+body {
+  background: #ccc;
+}
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+#to_do_list {
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: white;
+  border-radius: 5px;
+}
+
+#to_do_input input[type='text'] {
+  width: 70%;
+  padding: 4px 15px 4px 0;
+}
+
+#to_do_input button {
+  display: inline-block;
+  background-color: #fc999b;
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 2px;
+  padding: 5px 15px;
+}
+
+#to_do_input button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+#to_do_output{
+  min-height: auto;
+}
+
+#to_do_option a {
+  color: #fc999b;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
