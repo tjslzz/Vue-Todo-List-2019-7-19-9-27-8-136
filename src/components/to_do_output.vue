@@ -1,18 +1,16 @@
 <template>
 <div id="to_do_output">
-    <br>
     <ol>
-        <li v-for="item in list" v-bind:key="item.key">
-          <input type="checkbox">
-          {{ item }}
-        </li>
+        <Item v-for="(item) in list" v-bind:key="item.key" v-bind:item="item"/>
     </ol>
 </div>
 </template>
 
 <script>
+import Item from "./to_do_item.vue";
 export default {
     name: 'to_do_output',
-    props: ["list"]
+    props: ["list"],
+    components:{Item}
 }
 </script>

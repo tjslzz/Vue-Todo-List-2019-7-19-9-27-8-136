@@ -31,7 +31,7 @@ export default {
     },
     methods:{
         add_item:function(item){
-            this.list.push(item);
+            this.list.push({key:false,value:item});
         }
     }
 }

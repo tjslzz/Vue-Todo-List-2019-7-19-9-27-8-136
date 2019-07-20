@@ -1,7 +1,7 @@
 <template>
   <div id="to_do_input">
-    <input type="text" v-model="item">
-    <button v-on:click="$emit('add_item',item)">add</button>
+    <input type="text" v-model="item" class="input-text">
+    <button v-on:click="$emit('add_item',item);item=''">add</button>
   </div>
 </template>
 
