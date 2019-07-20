@@ -5,8 +5,8 @@
         <em>Simple Todo List with adding and filter by diff status.</em>
     </p>
     <ToDoInput v-on:add_item="add_item"/>
-    <ToDoOutput v-bind:list="list"/>
-    <ToDoOption />
+    <ToDoOutput v-bind:list="temp"/>
+    <ToDoOption v-on:all="all" v-on:active="active" v-on:complete="complete"/>
 </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
     name: 'to_do_list',
     data:()=>{
         return{
-            list: new Array()
+            list: new Array(),
+            temp: new Array(),
         }
     },
     props: {
@@ -32,6 +33,16 @@ export default {
     methods:{
         add_item:function(item){
             this.list.push({key:false,value:item});
+            this.temp.push({key:false,value:item});
+        },
+        all:function(){
+            this.temp = this.list;
+        },
+        active:function(){
+            this.temp = this.list.filter(i=>!i.key);
+        },
+        complete:function(){
+            this.temp = this.list.filter(i=>i.key);
         }
     }
 }
