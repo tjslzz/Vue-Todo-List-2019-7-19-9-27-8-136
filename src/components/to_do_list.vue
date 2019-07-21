@@ -39,9 +39,11 @@ export default {
             this.temp = this.list;
         },
         active:function(){
+            this.temp.length == this.list.length?this.list = this.temp:"";
             this.temp = this.list.filter(i=>!i.key);
         },
         complete:function(){
+            this.temp.length == this.list.length?this.list = this.temp:"";
             this.temp = this.list.filter(i=>i.key);
         }
     }
