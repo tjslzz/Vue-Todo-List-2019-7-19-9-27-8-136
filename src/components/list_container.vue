@@ -1,5 +1,5 @@
 <template>
-<div id="to_do_output">
+<div id="to_do_list">
     <ol>
         <Item v-for="(item) in list" v-bind:key="item.key" v-bind:item="item"/>
     </ol>
@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Item from "./to_do_item.vue";
+import Item from "./list_item.vue";
 export default {
-    name: 'to_do_output',
+    name: 'to_do_list',
     props: ["list"],
     components:{Item}
 }
