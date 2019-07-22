@@ -1,7 +1,7 @@
 <template>
   <div id="input_bar">
-    <input type="text" v-model="item" class="input-text" v-on:keyup.enter="$emit('add_item',item);item=''">
-    <button v-on:click="$emit('add_item',item);item=''">add</button>
+    <input type="text" v-model="item" class="input-text" @keyup.enter="$emit('add_item',item);item=''">
+    <button @click="$emit('add_item',item);item=''">add</button>
   </div>
 </template>
 

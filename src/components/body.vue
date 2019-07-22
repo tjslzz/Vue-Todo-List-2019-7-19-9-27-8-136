@@ -1,7 +1,7 @@
 <template>
 <div id="bbody">
-    <InputBar v-on:add_item="add_item"/>
-    <ListContainer v-bind:list="output"/>
+    <InputBar @add_item="add_item"/>
+    <ListContainer :list="output"/>
 </div>
 </template>
 

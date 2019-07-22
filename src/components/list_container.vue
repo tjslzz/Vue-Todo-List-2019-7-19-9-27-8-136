@@ -1,7 +1,7 @@
 <template>
 <div id="to_do_list">
     <ol>
-        <Item v-for="(item) in list" v-bind:key="item.key" v-bind:item="item"/>
+        <Item v-for="(item) in list" :key="item.key" :item="item"/>
     </ol>
 </div>
 </template>

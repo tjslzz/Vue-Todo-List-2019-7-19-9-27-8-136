@@ -5,7 +5,7 @@
         <Header msg="Vue To Do List" />
 
         <Body :list="list" :output="output" />
-        <Footer v-on:all="all" v-on:active="active" v-on:complete="complete"/>
+        <Footer @all="all" @active="active" @complete="complete"/>
     </div>
 </div>
 </template>
