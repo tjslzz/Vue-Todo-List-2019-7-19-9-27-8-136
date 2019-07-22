@@ -1,7 +1,7 @@
 <template>
 <div id="to_do_list">
     <ol>
-        <Item v-for="(item) in output" :key="item.id" :item="item" />
+        <Item v-for="(item) in list" :key="item.id" :item="item" />
     </ol>
 </div>
 </template>
@@ -12,20 +12,32 @@ export default {
     name: 'to_do_list',
     data() {
         return {
-            output: []
+            list: []
         }
     },
-    props: ["list", "model"],
+    props: {
+        output: {
+            type: Array,
+            default: () => []
+        },
+        model: {
+            type: String,
+            default: () => "all"
+        }
+    },
     components: {
         Item
     },
     mounted() {
-        if (this.model == "all") {
-            this.output = this.list;
-        } else if (this.model == "active") {
-            this.output = this.list.filter(i => !i.checked);
-        } else if (this.model == "compelete") {
-            this.output = this.list.filter(i => i.checked);
+        this.list = this.output;
+    },
+    watch: {
+        model() {
+            switch(this.model){
+                case "all" : this.list = this.output;break;
+                case "active" : this.list = this.output.filter(i => !i.checked);break;
+                case "complete" : this.list = this.output.filter(i => i.checked);break;
+            }
         }
     }
 }
