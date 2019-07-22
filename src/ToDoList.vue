@@ -3,8 +3,7 @@
     <div id="app_img"><img alt="Vue logo" src="./assets/logo.png"></div>
     <div id="container">
         <Header msg="Vue To Do List" />
-
-        <Body :list="list" :output="output" />
+        <Body :model="model"/>
         <Footer @all="all" @active="active" @complete="complete"/>
     </div>
 </div>
@@ -18,8 +17,7 @@ export default {
     name: 'app',
     data: () => {
         return {
-            list: new Array(),
-            output: new Array(),
+            model:"all"
         }
     },
     components: {
@@ -29,15 +27,13 @@ export default {
     },
     methods: {
         all: function () {
-            this.output = JSON.parse(JSON.stringify(this.list));
+            this.model = "all";
         },
         active: function () {
-            this.output.length == this.list.length ? this.list = this.output : "";
-            this.output = this.list.filter(i => !i.key);
+            this.model = "active";
         },
         complete: function () {
-            this.output.length == this.list.length ? this.list = this.output : "";
-            this.output = this.list.filter(i => i.key);
+            this.model = "complete";
         }
     }
 }
