@@ -32,7 +32,7 @@ export default {
     },
     watch: {
         model() {
-            this.list = this.model(output);
+            this.list = this.model(this.output);
         }
     }
 }
