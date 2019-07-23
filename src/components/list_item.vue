@@ -1,7 +1,7 @@
 <template>
 <li id="list_item" v-bind:class="{checked:item.checked}">
     <input type="checkbox" v-model="item.checked">
-    <span @dblclick="editable" :contenteditable="edit" @input="updatable" ref="info">{{ item.value }}</span>
+    <span @dblclick="editable" @keydown.enter.prevent="updatable" ref="info">{{ item.value }}</span>
 </li>
 </template>
 
@@ -13,10 +13,11 @@ export default {
     },
     methods: {
         editable() {
-            this.edit = true;
+            this.$refs.info.setAttribute("contenteditable", "true");
         },
         updatable() {
-            this.item.value = this.$refs.info.innerHTML;
+            this.$refs.info.setAttribute("contenteditable", "false");
+            this.item.value=this.$refs.info.innerHTML;
         }
     }
 }
