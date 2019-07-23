@@ -11,11 +11,6 @@ export default {
     props: {
         item: Object
     },
-    data: () => {
-        return {
-            edit: false
-        }
-    },
     methods: {
         editable() {
             this.edit = true;
