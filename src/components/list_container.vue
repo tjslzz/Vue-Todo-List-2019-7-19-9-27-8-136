@@ -21,8 +21,7 @@ export default {
             default: () => []
         },
         model: {
-            type: String,
-            default: () => "all"
+            type: Function
         }
     },
     components: {
@@ -33,11 +32,7 @@ export default {
     },
     watch: {
         model() {
-            switch(this.model){
-                case "all" : this.list = this.output;break;
-                case "active" : this.list = this.output.filter(i => !i.checked);break;
-                case "complete" : this.list = this.output.filter(i => i.checked);break;
-            }
+            this.list = this.model(output);
         }
     }
 }
